@@ -50,7 +50,7 @@ public class OrganizerService {
     }
 
 
-
+    //khaled alkuhaily
     public Set<MatchModel> getAllMatchesByFieldId(Integer organizer_id, Integer field_id){
         Organizer organizer = organizerRepository.findOrganizerById(organizer_id);
         if(organizer == null){
@@ -69,6 +69,8 @@ public class OrganizerService {
         return field.getMatches();
     }
 
+
+    //khaled alkuhaily
     public void addResultToMatch(Integer organizer_id, Integer match_id, String result, String winner){
         Organizer organizer = organizerRepository.findOrganizerById(organizer_id);
         if(organizer == null){

@@ -67,6 +67,8 @@ public class MatchService {
         matchRepository.delete(matchModel);
     }
 
+
+    //khaled alkuhaily
     public MatchModel findMatchById(Integer match_id){
         MatchModel match = matchRepository.findMatchById(match_id);
         if(match==null){
@@ -75,6 +77,8 @@ public class MatchService {
         return match;
     }
 
+
+    //khaled alkuhaily
     public List<MatchModel> getAllAvailableMatchesByFieldId(Integer field_id){
         Field field = fieldRepository.findFieldById(field_id);
         if(field == null){
@@ -92,10 +96,10 @@ public class MatchService {
 
 
     //update match status every 1m
+    //khaled not end-point
     @Scheduled(fixedDelay = 60000)
     public void updateStatus(){
         LocalDateTime currentDateTime = LocalDateTime.now();
-
         for(MatchModel match:matchRepository.findAll()){
             if(currentDateTime.isAfter(match.getStartDate())
                     &&currentDateTime.isBefore(match.getEndDate())){
@@ -104,8 +108,6 @@ public class MatchService {
             }else if(currentDateTime.isAfter(match.getEndDate())){
                 match.setStatus("Finished");
             }
-
-
         }
     }
 

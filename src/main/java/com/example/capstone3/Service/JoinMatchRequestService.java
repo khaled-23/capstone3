@@ -18,7 +18,7 @@ public class JoinMatchRequestService {
     private final PlayerRepository playerRepository;
 
 
-    //add team_leader
+    //khaled alkuhaily
     public void sendJoinMatchRequest(Integer team_leader_id,Integer team_id, Integer match_id){
         Player teamLeader = playerRepository.findPlayerById(team_leader_id);
         if(teamLeader == null){
@@ -55,6 +55,7 @@ public class JoinMatchRequestService {
         joinMatchRequestRepository.save(request);
     }
 
+    //khaled alkuhaily
     public JoinMatchRequest getJoinMatchRequestById(Integer request_id){
         JoinMatchRequest request = joinMatchRequestRepository.findJoinMatchRequestById(request_id);
         if(request == null){
@@ -63,6 +64,7 @@ public class JoinMatchRequestService {
         return request;
     }
 
+    //khaled alkuhaily
     public void acceptJoinMatchRequest(Integer organizer_id, Integer request_id, String status){
         Organizer organizer = organizerRepository.findOrganizerById(organizer_id);
         if(organizer == null){
@@ -100,6 +102,7 @@ public class JoinMatchRequestService {
         }else throw new ApiException("status must be ACCEPTED or REJECTED");
     }
 
+    //khaled alkuhaily
     public List<JoinMatchRequest> getAllRequestsByMatchId(Integer organizer_id,Integer match_id){
         Organizer organizer = organizerRepository.findOrganizerById(organizer_id);
         if(organizer == null){

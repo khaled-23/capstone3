@@ -55,6 +55,7 @@ public class FieldService {
         fieldRepository.delete(field);
     }
 
+    //khaled alkuhaily
     public Field getFieldById(Integer field_id){
         Field field = fieldRepository.findFieldById(field_id);
         if(field == null){
@@ -63,6 +64,7 @@ public class FieldService {
         return field;
     }
 
+    //khaled alkuhaily
     public List<Field> getFieldsByOrganizer(Integer organizer_id){
         Organizer organizer = organizerRepository.findOrganizerById(organizer_id);
         if(organizer == null){
@@ -72,6 +74,7 @@ public class FieldService {
     }
 
     //get matches with available matches to join
+    //khaled alkuhaily
     public List<Field> getFieldsWithAvailableMatches(){
         List<Field> fields = new ArrayList<>();
         for(Field field:fieldRepository.findAll()){
@@ -87,6 +90,8 @@ public class FieldService {
         }
         return fields;
     }
+
+    //khaled alkuhaily
     public List<Field> getFieldsByLocation(String keyword){
         List<Field> fields = new ArrayList<>();
         for(Field field:fieldRepository.findAll()){
@@ -99,6 +104,7 @@ public class FieldService {
 
 
     //get all fields with no available match, helpful for an organizer to add matches to an empty fields
+    //khaled alkuhaily
     public List<Field> getFieldsWithNoMatches(Integer organizer_id){
         Organizer organizer = organizerRepository.findOrganizerById(organizer_id);
 
@@ -123,7 +129,7 @@ public class FieldService {
     }
 
 
-
+    //khaled alkuhaily
     public Integer getNumberOfFieldMatchesByDate(Integer field_id, LocalDateTime dateTime){
         Field field = fieldRepository.findFieldById(field_id);
         Set<MatchModel> fieldMatches = field.getMatches();
@@ -136,6 +142,7 @@ public class FieldService {
         return counter;
     }
 
+    //khaled alkuhaily
     public Integer totalMatchesByField(Integer field_id){
         Field field = fieldRepository.findFieldById(field_id);
         if(field == null){
